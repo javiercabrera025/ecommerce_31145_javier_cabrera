@@ -1,6 +1,7 @@
 import "./NavBar.css";
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import CartWidget from "../cartWidget/CartWidget";
 
 const navigation = [
   { name: "Play Station", href: "#", current: true },
@@ -39,7 +40,7 @@ const NavBar = () => {
                       src="images/logo-gaming-house.svg"
                       alt="Workflow"
                     />
-                    <h1  className="inline-block text-white">Gaming House</h1>
+                    <h1 className="inline-block text-white">Gaming House</h1>
                   </a>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
@@ -59,7 +60,11 @@ const NavBar = () => {
                         {item.name}
                       </a>
                     ))}
+                
                   </div>
+                </div>
+                <div className="absolute inset-y-0 right-0 flex items-center pr-2">
+                <CartWidget />
                 </div>
               </div>
             </div>
