@@ -34,7 +34,7 @@ const NavBar = () => {
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="navbar-logo flex-shrink-0 flex items-center">
-                  <a href="/" class="navbar-logo-link">
+                  <a href="/" className="navbar-logo-link">
                     <img
                       className="inline-block h-8 w-auto mr-5"
                       src="images/logo-gaming-house.svg"
