@@ -16,8 +16,8 @@ const ItemListContainer = (props) => {
   }, []);
   return (
     <div>
-      <h1 className="title mb-10">{props.greetings}</h1>
-      <section>
+      <h1 className="title mb-10 text-white">{props.greetings}</h1>
+      <section className="product-list">
         <div className="container mx-auto pl-5 pr-5">
           <ItemList products={products} />
         </div>
