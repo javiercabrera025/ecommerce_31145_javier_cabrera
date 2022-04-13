@@ -17,7 +17,7 @@ const products = [
       "Red Dead Redemption is a Western-themed action-adventure game played from a third-person perspective. The player controls John Marston and completes missions—linear scenarios with set objectives—to progress through the story; in the game's epilogue, the player controls John's son Jack.",
     pictureUrl:
       "https://cdn.akamai.steamstatic.com/steam/apps/271590/header.jpg",
-    category: "play station",
+    category: "play",
   },
   {
     id: "3",
@@ -40,6 +40,20 @@ const products = [
     category: "pc",
   },
 ];
+
+const categories = [
+  {id: 'xbox', description: 'Xbox'},
+  {id: 'play', description: 'Play Station'},
+  {id: 'pc', description: 'PC'}
+]
+
+export const getCategories = () => {
+  return new Promise(resolve => {
+      setTimeout(() => {
+          resolve(categories)
+      }, 500)
+  })
+}
 
 export const getProducts = () => {
   return new Promise((resolve) => {
