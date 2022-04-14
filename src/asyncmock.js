@@ -55,13 +55,13 @@ export const getCategories = () => {
   })
 }
 
-export const getProducts = () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(products);
-    }, 2000);
-  });
-};
+export const getProducts = (categoryId) => {
+  return new Promise (resolve => {
+      setTimeout(() => {
+          resolve(categoryId ? products.filter(prod => prod.category === categoryId) : products)
+      }, 500)
+  })
+}
 
 export const getProductsById = (id) => {
   return new Promise((resolve) => {
