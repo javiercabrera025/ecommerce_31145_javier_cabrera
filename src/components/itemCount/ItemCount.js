@@ -56,7 +56,7 @@ const ItemCount = ({ initial, stock, onAdd }) => {
           </div>
           <button
             onClick={ count>0 ? () => onAdd(count) : undefined }
-            className="mt-10 w-full bg-gray-900 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="button-primary mt-5 w-full border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition"
           >
             Agregar al carrito
           </button>

@@ -31,11 +31,11 @@ const ItemDetailContainer = () => {
       <section>
         <div className="container mx-auto pl-5 pr-5">
           {loading ? (
-            <h1>Cargando...</h1>
+            <h1 className="mt-5 font-sans text-xl font-semibold text-white">Cargando...</h1>
           ) : product ? (
             <ItemDetail {...product} />
           ) : (
-            <h1>El producto no existe</h1>
+            <h1 className="mt-5 font-sans text-xl font-semibold text-white">El producto no existe</h1>
           )}
         </div>
       </section>
