@@ -1,11 +1,10 @@
 import "./NavBar.css";
-import { Disclosure } from "@headlessui/react"
-import { MenuIcon, XIcon } from "@heroicons/react/outline"
-import CartWidget from "../cartWidget/CartWidget"
-import { useState, useEffect } from 'react'
-import { getCategories } from "../../asyncmock"
-import { NavLink } from 'react-router-dom'
-
+import { Disclosure } from "@headlessui/react";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import CartWidget from "../cartWidget/CartWidget";
+import { useState, useEffect } from "react";
+import { getCategories } from "../../asyncmock";
+import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
   const [categories, setCategories] = useState([]);
@@ -34,14 +33,14 @@ const NavBar = () => {
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="navbar-logo flex-shrink-0 flex items-center">
-                  <a href="/" className="navbar-logo-link">
+                  <Link to="/">
                     <img
                       className="inline-block h-8 w-auto mr-5"
                       src="images/logo-gaming-house.svg"
                       alt="Workflow"
                     />
-                    <h1 className="inline-block text-white">Gaming House</h1>
-                  </a>
+                     <h1 className="inline-block text-white">Gaming House</h1>
+                  </Link>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
