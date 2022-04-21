@@ -4,7 +4,7 @@ import { MenuIcon, XIcon } from "@heroicons/react/outline"
 import CartWidget from "../cartWidget/CartWidget"
 import { useState, useEffect } from 'react'
 import { getCategories } from "../../asyncmock"
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 
 const NavBar = () => {
