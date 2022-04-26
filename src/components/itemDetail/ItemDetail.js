@@ -11,7 +11,7 @@ const ItemDetail = ({ id, title, price, pictureUrl, description, stock }) => {
   const handleOnAdd = (quantity) => {
     console.log(`Se agregaron ${quantity} productos`)
     const objProd = {
-      id, title, price, quantity
+      id, title, price, quantity, pictureUrl
     }
     addItem(objProd)
   }
@@ -25,7 +25,7 @@ const ItemDetail = ({ id, title, price, pictureUrl, description, stock }) => {
         ${price}
       </p>
       <p className="mt-5 font-sans text-l mt-2 text-white">{description}</p>
-      {isInCart(id) ? <Link to='/cart' className="button-primary mt-5 w-full border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition">Ir al carrito</Link> : <ItemCount initial={0} stock={10} onAdd={handleOnAdd} /> }
+      {isInCart(id) ? <Link to='/cart' className="button-primary mt-5 w-full border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition">Terminar compra</Link> : <ItemCount initial={0} stock={10} onAdd={handleOnAdd} /> }
     </div>
   );
 };
