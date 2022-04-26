@@ -5,6 +5,8 @@ import CartWidget from "../cartWidget/CartWidget";
 import { useState, useEffect } from "react";
 import { getCategories } from "../../asyncmock";
 import { Link, NavLink } from "react-router-dom";
+import { useContext } from "react";
+import CartContext from "../../context/CartContext";
 
 const NavBar = () => {
   const [categories, setCategories] = useState([]);
@@ -14,6 +16,7 @@ const NavBar = () => {
       setCategories(categories);
     });
   }, []);
+  const { cart } = useContext(CartContext);
   return (
     <Disclosure as="nav" className="navbar">
       {({ open }) => (
@@ -56,7 +59,7 @@ const NavBar = () => {
                   </div>
                 </div>
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2">
-                  <CartWidget />
+                  {cart.length>0 ? <CartWidget/> : undefined}
                 </div>
               </div>
             </div>
