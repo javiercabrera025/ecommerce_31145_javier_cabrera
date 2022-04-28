@@ -8,6 +8,7 @@ const products = [
     pictureUrl:
       "https://cdn.akamai.steamstatic.com/steam/apps/1174180/header.jpg",
     category: "xbox",
+    stock: 10,
   },
   {
     id: "2",
@@ -18,6 +19,7 @@ const products = [
     pictureUrl:
       "https://cdn.akamai.steamstatic.com/steam/apps/271590/header.jpg",
     category: "play",
+    stock: 10,
   },
   {
     id: "3",
@@ -28,6 +30,7 @@ const products = [
     pictureUrl:
       "https://cdn.akamai.steamstatic.com/steam/apps/1172380/header.jpg",
     category: "pc",
+    stock: 10,
   },
   {
     id: "4",
@@ -38,6 +41,7 @@ const products = [
     pictureUrl:
       "https://cdn.akamai.steamstatic.com/steam/apps/1506830/header.jpg",
     category: "pc",
+    stock: 10,
   },
 ];
 
