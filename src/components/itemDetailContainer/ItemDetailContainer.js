@@ -5,7 +5,7 @@ import { firestoreDb } from "../../service";
 import { getDoc, doc } from "firebase/firestore";
 
 const ItemDetailContainer = ({setCart, cart}) => {
-  const [product, setProduct] = useState();
+  const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const { productId } = useParams();
@@ -13,7 +13,6 @@ const ItemDetailContainer = ({setCart, cart}) => {
   useEffect(() => {
     getDoc(doc(firestoreDb, 'products', productId)).then(response => {
      const product = { id: response.id, ...response.data() };
-     console.log(product)
      setProduct(product)
     })
     return () => {

@@ -3,16 +3,21 @@ import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import CartWidget from "../cartWidget/CartWidget";
 import { useState, useEffect } from "react";
-import { getCategories } from "../../asyncmock";
+import { getDocs, collection } from 'firebase/firestore'
 import { Link, NavLink } from "react-router-dom";
 import { useContext } from "react";
 import CartContext from "../../context/CartContext";
+import { firestoreDb } from "../../service";
 
 const NavBar = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    getCategories().then((categories) => {
+    getDocs(collection(firestoreDb, 'categories')).then(response => {
+      console.log(response)
+      const categories = response.docs.map(doc => {
+          return { id: doc.id, ...doc.data()}
+      })
       setCategories(categories);
     });
   }, []);
