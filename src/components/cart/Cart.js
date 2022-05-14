@@ -1,7 +1,10 @@
+
+import ItemCart from "../itemCart/ItemCart";
+
 const Cart = () => {
-  return (
-    <p className="mt-5 font-sans text-xl font-semibold text-white">This is the cart</p>
+  return (  
+    <ItemCart/>
+    
   );
 };
-
 export default Cart;
