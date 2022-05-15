@@ -1,0 +1,11 @@
+@import "../../assets/scss/variables.scss";
+.navbar {
+    background-color: $color-primary;
+    .navbar-logo {
+        display: flex;
+        align-items: center;
+        a {
+            font-family: $logo-font-family
+        }
+    }
+}

@@ -1,0 +1,20 @@
+@import "../../assets/scss/variables.scss";
+
+.item-count {
+    padding-top: 30px;
+    width: 50%;
+}
+
+.add-to-cart-button {
+    background-color: #169fe3;
+    display: block;
+    width: 100%;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-transform: capitalize;
+}
+
+.add-to-cart-button:hover {
+    background-color: #3794c3;
+}

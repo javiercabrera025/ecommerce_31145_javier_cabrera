@@ -11,7 +11,7 @@ import {
   addDoc,
 } from "firebase/firestore";
 import { firestoreDb } from "../../service/index";
-import "./itemCart.css";
+import "./itemCart.scss";
 
 const ItemCart = () => {
   const [loading, setLoading] = useState(false)
