@@ -1,4 +1,6 @@
 import { useState } from "react";
+import "./itemCount.scss";
+
 
 const ItemCount = ({ initial, stock, onAdd }) => {
   const [count, setCount] = useState(initial);
@@ -16,52 +18,48 @@ const ItemCount = ({ initial, stock, onAdd }) => {
   };
 
   return (
-    <div className="container mx-auto">
-      <div className="grid grid-cols-4 gap-4">
-        <div>
-          <div className="flex flex-row items-center justify-between">
-            <button onClick={decrement}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M20 12H4"
-                />
-              </svg>
-            </button>
-            <p className="font-sans font-bold text-lg"> {count} </p>
-            <button onClick={increment}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 4v16m8-8H4"
-                />
-              </svg>
-            </button>
-          </div>
-          <button
-            onClick={ count>0 ? () => onAdd(count) : undefined }
-            className="button-primary mt-5 w-full border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition"
+    <div className="item-count">
+      <div className="flex flex-row items-center justify-between">
+        <button onClick={decrement}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
           >
-            Agregar al carrito
-          </button>
-        </div>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M20 12H4"
+            />
+          </svg>
+        </button>
+        <p className="font-sans font-bold text-lg"> {count} </p>
+        <button onClick={increment}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M12 4v16m8-8H4"
+            />
+          </svg>
+        </button>
       </div>
+      <button
+        onClick={count > 0 ? () => onAdd(count) : undefined}
+       className="add-to-cart-button"
+      >
+        Add to cart
+      </button>
     </div>
   );
 };

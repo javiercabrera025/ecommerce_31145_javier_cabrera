@@ -16,7 +16,7 @@ const NavBar = () => {
     getDocs(collection(firestoreDb, 'categories')).then(response => {
       console.log(response)
       const categories = response.docs.map(doc => {
-          return { id: doc.id, ...doc.data()}
+        return { id: doc.id, ...doc.data() }
       })
       setCategories(categories);
     });
@@ -47,23 +47,28 @@ const NavBar = () => {
                       src="images/logo-gaming-house.svg"
                       alt="Workflow"
                     />
-                     <h1 className="inline-block text-white">Gaming House</h1>
+                    <h1 className="inline-block text-white">Gaming House</h1>
                   </Link>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
-                    {categories.map((cat) => (
-                      <NavLink
-                        key={cat.id}
-                        to={`/category/${cat.id}`}
-                      >
-                        {cat.description}
-                      </NavLink>
-                    ))}
+                    <div class="dropdown">
+                      <button class="dropdown-button">Categories</button>
+                      <div class="dropdown-content">
+                        {categories.map((cat) => (
+                          <NavLink
+                            key={cat.id}
+                            to={`/category/${cat.id}`}
+                          >
+                            {cat.description}
+                          </NavLink>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2">
-                  {cart.length>0 ? <CartWidget/> : undefined}
+                  {cart.length > 0 ? <CartWidget /> : undefined}
                 </div>
               </div>
             </div>

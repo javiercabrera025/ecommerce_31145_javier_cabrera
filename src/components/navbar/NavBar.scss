@@ -11,7 +11,50 @@
 
         a {
             color: $link-color;
-            font-family: $logo-font-family
+            font-family: $logo-font-family;
+            display: flex;
+            align-items: center;
         }
     }
+}
+
+/* Dropdown Button */
+.dropdown-button {
+    color: $link-color;
+    height: 64px;
+    &:hover {
+        color: $color-white;
+    }
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+
+        a {
+            color: $link-color;
+            background-color: $background-secondary;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+
+            &:hover {
+                color: $color-white;
+                background-color: $background-primary;
+            }
+        }
+
+    }
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
