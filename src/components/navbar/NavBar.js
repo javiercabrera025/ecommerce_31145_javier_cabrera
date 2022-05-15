@@ -14,7 +14,6 @@ const NavBar = () => {
 
   useEffect(() => {
     getDocs(collection(firestoreDb, 'categories')).then(response => {
-      console.log(response)
       const categories = response.docs.map(doc => {
         return { id: doc.id, ...doc.data() }
       })
@@ -52,9 +51,9 @@ const NavBar = () => {
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
-                    <div class="dropdown">
-                      <button class="dropdown-button">Categories</button>
-                      <div class="dropdown-content">
+                    <div className="dropdown">
+                      <button className="dropdown-button">Categories</button>
+                      <div className="dropdown-content">
                         {categories.map((cat) => (
                           <NavLink
                             key={cat.id}

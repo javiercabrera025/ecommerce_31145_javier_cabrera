@@ -1,89 +1,15 @@
 import { useContext, useState } from "react";
 import CartContext from "../../context/CartContext";
 import { Link } from "react-router-dom";
-import {
-  getDocs,
-  writeBatch,
-  query,
-  where,
-  collection,
-  documentId,
-  addDoc,
-} from "firebase/firestore";
-import { firestoreDb } from "../../service/index";
 import "./itemCart.scss";
 
 const ItemCart = () => {
-  const [loading, setLoading] = useState(false)
   const { cart, removeItem } = useContext(CartContext);
   const initialValue = 0;
   const total = cart.reduce(
     (accumulator, current) => accumulator + current.price * current.quantity,
     initialValue
   );
-  const createOrder = () => {
-    setLoading(true);
-
-    const objOrder = {
-      items: cart,
-      buyer: {
-        name: "Javier Cabrera",
-        phone: "123456789",
-        email: "javicam@gmail.com",
-      },
-      total: total,
-      date: new Date(),
-    };
-
-    const ids = cart.map((prod) => prod.id);
-
-    const batch = writeBatch(firestoreDb);
-
-    const collectionRef = collection(firestoreDb, "products");
-
-    const outOfStock = [];
-
-    getDocs(query(collectionRef, where(documentId(), "in", ids)))
-      .then((response) => {
-        response.docs.forEach((doc) => {
-          const dataDoc = doc.data();
-          const prodQuantity = cart.find(
-            (prod) => prod.id === doc.id
-          )?.quantity;
-
-          if (dataDoc.stock >= prodQuantity) {
-            batch.update(doc.ref, { stock: dataDoc.stock - prodQuantity });
-          } else {
-            outOfStock.push({ id: doc.id, ...dataDoc });
-          }
-        });
-      })
-      .then(() => {
-        if (outOfStock.length === 0) {
-          const collectionRef = collection(firestoreDb, "orders");
-          return addDoc(collectionRef, objOrder);
-        } else {
-          return Promise.reject({
-            name: "outOfStockError",
-            products: outOfStock,
-          });
-        }
-      })
-      .then(({ id }) => {
-        batch.commit();
-        console.log(`El id de la orden es ${id}`);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  };
-
-  if (loading) {
-    return <h1>Se esta generando su orden</h1>;
-  }
 
   if (cart.length === 0) {
     return (
@@ -155,13 +81,13 @@ const ItemCart = () => {
           Shipping and taxes calculated at checkout.
         </p>
         <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
-          <button
-            onClick={() => createOrder()}
+          <Link
+            to="/form"
             type="button"
             className="button-primary mt-5 w-full border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition"
           >
             Generar orden
-          </button>
+          </Link>
         </div>
       </div>
     </div>
