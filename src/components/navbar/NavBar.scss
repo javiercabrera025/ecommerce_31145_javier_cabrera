@@ -1,10 +1,16 @@
 @import "../../assets/scss/variables.scss";
+
 .navbar {
     background-color: $color-primary;
+    border-bottom: 1px solid $boder-color;
+    box-shadow: 1px 2px 3px rgb(0 0 0 / 45%);
+
     .navbar-logo {
         display: flex;
         align-items: center;
+
         a {
+            color: $link-color;
             font-family: $logo-font-family
         }
     }

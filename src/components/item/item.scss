@@ -1,27 +1,30 @@
 @import "../../assets/scss/variables.scss";
 
 .product-item {
-    padding: 20px;
-    background-color: #0c0c0c;
-}
-
-.product-item picture {
-    display: block;
-    width: 100%;
-    height: 150px;
-}
-
-.product-item picture img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.button-primary {
-    color: #ffffff;
-    background-color: #333333;
-}
-
-.button-primary:hover {
-    background-color: #5c5c5c;
+    background-color: $background-secondary;
+    picture {
+        display: block;
+        width: 100%;
+        height: 150px;
+        padding: 15px 0;
+        background-color: $color-white;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+    }
+    .product-item-info {
+        display: inline-flex;
+        padding: 10px;
+        color: $color-white;
+        .product-title {
+            width: 70%;
+        }
+        .product-price {
+            width: 30%;
+            text-align: right;
+        }
+    }   
 }

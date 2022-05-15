@@ -56,7 +56,6 @@ const NavBar = () => {
                       <NavLink
                         key={cat.id}
                         to={`/category/${cat.id}`}
-                        className="text-white px-3 py-2 rounded-md text-sm font-medium"
                       >
                         {cat.description}
                       </NavLink>
