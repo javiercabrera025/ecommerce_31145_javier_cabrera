@@ -15,7 +15,7 @@ const ItemCart = () => {
   if (cart.length === 0) {
     return (
       <div className="cart-item mt-10 container mx-auto no-items pt-10 pb-10 product-item shadow shadow-black">
-        <h1 className="mb-10 text-white text-center">No hay productos</h1>
+        <h1 className="mb-10 text-white text-center">The cart is empty</h1>
         <Link
           to="/"
           type="button"
