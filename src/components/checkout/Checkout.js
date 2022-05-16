@@ -1,9 +1,7 @@
-import Form from "../form/Form";
-
 const Checkout = () => {
     return (
         <>
-            <Form/>
+           <h2>Hola</h2>
         </>
     )
 }

@@ -8,3 +8,15 @@ body {
     font-family: $primary-font-family;
     background-color: $background-primary;
 }
+
+.modal {
+    form {
+        display: none;
+    }
+
+    &.show {
+        form {
+            display: block;
+        }
+    }
+}

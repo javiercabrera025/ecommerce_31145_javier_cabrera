@@ -56,7 +56,7 @@ const ItemCount = ({ initial, stock, onAdd }) => {
       </div>
       <button
         onClick={count > 0 ? () => onAdd(count) : undefined}
-       className="add-to-cart-button"
+       className="button-primary"
       >
         Add to cart
       </button>

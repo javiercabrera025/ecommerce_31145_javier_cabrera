@@ -28,7 +28,7 @@ const ItemDetail = ({ id, title, price, pictureUrl, description, stock }) => {
           ${price}
         </p>
         <p className="mt-5 font-sans text-l mt-2 text-white">{description}</p>
-        {isInCart(id) ? <Link to='/cart' className="add-to-cart-button text-center">Finish</Link> : <ItemCount initial={0} stock={stock} onAdd={handleOnAdd} />}
+        {isInCart(id) ? <Link to='/cart' className="button-primary text-center">Finish</Link> : <ItemCount initial={0} stock={stock} onAdd={handleOnAdd} />}
       </div>
     </div>
   );
