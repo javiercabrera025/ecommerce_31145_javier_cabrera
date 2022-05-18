@@ -1,4 +1,4 @@
-import "./NavBar.css";
+import "./NavBar.scss";
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import CartWidget from "../cartWidget/CartWidget";
@@ -14,9 +14,8 @@ const NavBar = () => {
 
   useEffect(() => {
     getDocs(collection(firestoreDb, 'categories')).then(response => {
-      console.log(response)
       const categories = response.docs.map(doc => {
-          return { id: doc.id, ...doc.data()}
+        return { id: doc.id, ...doc.data() }
       })
       setCategories(categories);
     });
@@ -47,24 +46,28 @@ const NavBar = () => {
                       src="images/logo-gaming-house.svg"
                       alt="Workflow"
                     />
-                     <h1 className="inline-block text-white">Gaming House</h1>
+                    <h1 className="inline-block text-white">Gaming House</h1>
                   </Link>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
-                    {categories.map((cat) => (
-                      <NavLink
-                        key={cat.id}
-                        to={`/category/${cat.id}`}
-                        className="text-white px-3 py-2 rounded-md text-sm font-medium"
-                      >
-                        {cat.description}
-                      </NavLink>
-                    ))}
+                    <div className="dropdown">
+                      <button className="dropdown-button">Categories</button>
+                      <div className="dropdown-content">
+                        {categories.map((cat) => (
+                          <NavLink
+                            key={cat.id}
+                            to={`/category/${cat.id}`}
+                          >
+                            {cat.description}
+                          </NavLink>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2">
-                  {cart.length>0 ? <CartWidget/> : undefined}
+                  {cart.length > 0 ? <CartWidget /> : undefined}
                 </div>
               </div>
             </div>

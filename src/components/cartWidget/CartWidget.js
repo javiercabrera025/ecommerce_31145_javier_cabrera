@@ -1,4 +1,4 @@
-import "./cartWidget.css";
+import "./cartWidget.scss";
 import { ShoppingCartIcon } from '@heroicons/react/solid'
 import CartContext from "../../context/CartContext";
 import { useContext } from "react";

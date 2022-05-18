@@ -1,0 +1,26 @@
+@import "../../assets/scss/variables.scss";
+
+.cart-modal {
+    .cart-modal-body {
+        position: relative;
+        min-width: 500px;
+        padding: 50px;
+        background-color: $background-primary;
+        border-radius: 5px;
+        form {
+            input {
+                display: block;
+                width: 100%;
+                margin-bottom: 20px;
+                padding: 20px;
+                border-radius: 5px;
+            }
+        }
+        .close-modal {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            color: $color-white;
+        }
+    }
+}
