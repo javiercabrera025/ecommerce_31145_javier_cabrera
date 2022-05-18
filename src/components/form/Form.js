@@ -136,7 +136,7 @@ const Form = () => {
               <>
                 <div className="cart-modal-body">
                   <h3 className="text-white text-left text-3xl capitalize font-normal mb-5">
-                    Fill the form
+                   Checkout
                   </h3>
                   <form onSubmit={handleSubmit}>
                     <input
